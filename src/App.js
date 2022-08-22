@@ -1,22 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const [count, setCount] = useState(0);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {/* count값이 보여지는 곳 */}
+        <h3 data-testid="counter">{count}</h3>
+          <div>
+            {/* 클릭시 count 값 1증가 */}
+            <button data-testid="plus-button"
+            onClick={() => setCount((count) => count + 1 )}>+</button>
+             {/* 클릭시 count 값 1감소 */}
+            <button data-testid="minus-button"
+            onClick={() => setCount((count) => count - 1 )}>-</button>
+          </div>
       </header>
     </div>
   );
